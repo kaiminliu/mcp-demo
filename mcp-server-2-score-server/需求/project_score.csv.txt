@@ -1,0 +1,11 @@
+id	employee_id	employee_name	project_id	project_name	score
+1	W0000001	张三	1	Project 1	80
+2	W0000002	李四	1	Project 1	30
+3	W0000003	王五	1	Project 1	68
+4	W0000004	赵六	1	Project 1	75
+5	W0000001	张三	2	Project 2	80
+6	W0000004	赵六	2	Project 2	30
+7	W0000003	王五	2	Project 2	90
+8	W0000002	李四	2	Project 2	45
+9	W0000001	张三	3	Project 3	100
+10	W0000002	李四	3	Project 3	0

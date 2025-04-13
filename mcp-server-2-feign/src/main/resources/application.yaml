@@ -1,0 +1,18 @@
+#logging:
+#  pattern:
+#    console:
+spring:
+#  main:
+#    banner-mode: off
+  application:
+    name: mcp-server-2-feign
+  cloud:
+    openfeign:
+      client:
+        config:
+          # 配置 评分系统 服务接口BASE路径
+          score-system:
+            url: 'http://localhost:8082/api'
+
+server:
+  port: 8081

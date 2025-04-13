@@ -1,0 +1,11 @@
+#logging:
+#  pattern:
+#    console:
+spring:
+#  main:
+#    banner-mode: off
+  application:
+    name: mcp-server-1-simple
+
+server:
+  port: 8081
