@@ -228,7 +228,7 @@ src/main/java/com/demo/
 ## 开发环境
 
 ### 1. 环境要求
-- JDK 1.8+
+- JDK 17+
 - Maven 3.6+
 - MySQL 5.7+
 - IDE推荐：IntelliJ IDEA
