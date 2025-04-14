@@ -4,7 +4,7 @@
 这是一个基于SpringBoot + JPA + MySQL5.7 + POI技术栈实现的人员专案评分系统。系统支持对员工的项目评分进行管理，包括查询、新增、删除、更新和导出等功能。系统采用前后端分离架构，提供RESTful API接口，支持JSON格式的数据交互。
 
 ## 技术栈
-- SpringBoot 2.7.x
+- SpringBoot 3.4.4
 - Spring Data JPA
 - MySQL 5.7
 - Apache POI (用于Excel导出)
@@ -235,7 +235,7 @@ src/main/java/com/demo/
 
 ### 2. 数据库配置
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+spring.datasource.url=jdbc:mysql://localhost:3306/score_system?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
 spring.datasource.username=root
 spring.datasource.password=123456
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
@@ -277,13 +277,12 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ### 3. 访问服务
 - 服务启动后，默认端口为8082
 - 访问地址：`http://localhost:8082`
-- 接口文档：`http://localhost:8082/swagger-ui.html`
 
 ### 4. 注意事项
 1. 确保MySQL服务已启动
 2. 确保数据库连接信息正确
 3. 确保端口8082未被占用
-4. 首次启动时会自动创建表结构
+4. 首次启动时会自动创建表结构（但不会创建数据库和数据，可用init.sql代为执行）
 5. 开发环境建议开启SQL日志
 
 ## 注意事项
@@ -329,42 +328,6 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 4. 安全测试
 5. 兼容性测试
 
-## 数据传输对象
-
-### 1. UserDTO
-```java
-public class UserDTO {
-    private Long id;                    // 主键ID
-    private String employeeId;          // 员工工号
-    private String employeeName;        // 员工姓名
-    private LocalDateTime createdTime;  // 创建时间
-    private LocalDateTime updatedTime;  // 更新时间
-}
-```
-
-### 2. ProjectDTO
-```java
-public class ProjectDTO {
-    private Long id;                    // 主键ID
-    private String projectName;         // 项目名称
-    private LocalDateTime createdTime;  // 创建时间
-    private LocalDateTime updatedTime;  // 更新时间
-}
-```
-
-### 3. ProjectScoreDTO
-```java
-public class ProjectScoreDTO {
-    private Long id;                    // 主键ID
-    private String employeeId;          // 员工工号
-    private String employeeName;        // 员工姓名
-    private Long projectId;             // 项目ID
-    private String projectName;         // 项目名称
-    private BigDecimal score;           // 分数
-    private LocalDateTime createdTime;  // 创建时间
-    private LocalDateTime updatedTime;  // 更新时间
-}
-```
 
 ## 测试说明
 ### 单元测试
@@ -372,15 +335,6 @@ public class ProjectScoreDTO {
    - 使用MockMvc模拟HTTP请求
    - 验证请求参数和响应结果
    - 测试异常情况处理
-
-2. 服务层测试
-   - 使用Mockito模拟依赖
-   - 验证业务逻辑
-   - 测试异常情况处理
-
-3. 工具类测试
-   - 测试工具方法的正确性
-   - 验证异常处理
 
 ### 测试用例覆盖
 1. 用户管理测试
